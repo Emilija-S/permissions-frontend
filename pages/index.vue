@@ -9,7 +9,7 @@
               id="user-permission-form"
               role="form"
               class="ui form"
-              @submit.prevent="sendUserPermissions"
+              @submit.prevent="sendUserPermissions()"
             >
               <div class="row">
                 <select class="form-select col col-6 mt-3 mb-5"
@@ -73,7 +73,7 @@ export default {
       });
   },
   methods: {
-      async sendUserPermissions() {
+    async sendUserPermissions() {
       try {
         await this.$axios.post('/api/user-permission', this.form);
       } catch (error) {
